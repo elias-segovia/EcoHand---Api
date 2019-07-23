@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcoHand.Api", "EcoHand.Api\EcoHand.Api.csproj", "{E2E87399-499B-43FD-A692-451B26B24955}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcoHand.Data", "EcoHand.Data\EcoHand.Data.csproj", "{A65B0A95-37E6-4C36-B895-7F05B4014C35}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2E87399-499B-43FD-A692-451B26B24955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2E87399-499B-43FD-A692-451B26B24955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2E87399-499B-43FD-A692-451B26B24955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2E87399-499B-43FD-A692-451B26B24955}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A65B0A95-37E6-4C36-B895-7F05B4014C35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A65B0A95-37E6-4C36-B895-7F05B4014C35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A65B0A95-37E6-4C36-B895-7F05B4014C35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A65B0A95-37E6-4C36-B895-7F05B4014C35}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC837537-3EAB-4369-898C-2D6CC5967C40}
+	EndGlobalSection
+EndGlobal

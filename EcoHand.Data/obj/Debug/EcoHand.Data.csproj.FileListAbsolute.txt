@@ -1,0 +1,15 @@
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\bin\Debug\EcoHand.Data.dll.config
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\bin\Debug\EcoHand.Data.dll
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\bin\Debug\EcoHand.Data.pdb
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\bin\Debug\EntityFramework.dll
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\bin\Debug\EntityFramework.xml
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\obj\Debug\EcoHand.Data.csprojAssemblyReference.cache
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\obj\Debug\EcoHand.Data.csproj.CoreCompileInputs.cache
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\obj\Debug\EcoHand.Data.csproj.CopyComplete
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\obj\Debug\EcoHand.Data.dll
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\obj\Debug\EcoHand.Data.pdb
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\obj\Debug\EcoHand.Data.Migrations.Inicializando.resources
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\obj\Debug\EcoHand.Data.csproj.GenerateResource.cache
+C:\Users\EliasSegovia\source\repos\EcoHand\EcoHand.Data\obj\Debug\EcoHand.Data.Migrations.agregando_campos_a_los_modelos.resources
