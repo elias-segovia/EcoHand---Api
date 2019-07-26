@@ -16,7 +16,7 @@ namespace EcoHand.Api.Controllers
         public IHttpActionResult Get()
         {
             var gestos = _dbContext.Gestos.ToList();
-            return Json(gestos);
+            return Ok(gestos);
         }
 
         // GET: api/Gestos/5

@@ -16,7 +16,7 @@ namespace EcoHand.Api.Controllers
         public IHttpActionResult Get()
         {
             var secuencias = _dbContext.Secuencias.ToList();
-            return Json(secuencias);
+            return Ok(secuencias);
         }
 
         // GET: api/Secuencias/5
