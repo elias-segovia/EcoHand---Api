@@ -18,7 +18,7 @@ namespace EcoHand.Api.Controllers
         public IHttpActionResult Get()
         {
             var usuario = _dbContext.Usuarios.ToList();
-            return Json(usuario);
+            return Ok(usuario);
         }
 
         // GET: api/Usuarios/1
