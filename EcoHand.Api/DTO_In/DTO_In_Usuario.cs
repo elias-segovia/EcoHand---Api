@@ -16,6 +16,9 @@ namespace EcoHand.Api.DTO_In
 
         [JsonProperty("email")]
         public string Email { get; set; }
-        
+
+        [JsonProperty("contraseña")]
+        public string Contraseña { get; set; }
+
     }
 }
