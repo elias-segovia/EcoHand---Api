@@ -17,6 +17,8 @@ namespace EcoHand.Data.Models
 
         public string Email { get; set; }
 
+        public string Contraseña { get; set; }
+
         public DateTime FechaCreacion { get; set; }
 
         public virtual ICollection<Gesto> Gestos { get; set; }
