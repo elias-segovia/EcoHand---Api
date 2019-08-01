@@ -1,4 +1,5 @@
-﻿using EcoHand.Data;
+﻿using EcoHand.Api.DTO_In;
+using EcoHand.Data;
 using EcoHand.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -37,23 +38,44 @@ namespace EcoHand.Api.Controllers
             return Json(usuario);
         }
 
-        // POST: api/Usuarios
         [HttpPost]
-        public IHttpActionResult Post([FromBody] string username, string email)
+        public IHttpActionResult Post([FromBody] DTO_In_Usuario usuario)
         {
             try
             {
-                var usuario = new Usuario();
-                _dbContext.Usuarios.Add(usuario);
+                var user = new Usuario();
+                user.Username = usuario.Username;
+                user.Email = usuario.Email;
+                user.Contraseña = usuario.Contraseña;
+                _dbContext.Usuarios.Add(user);
                 _dbContext.SaveChanges();
 
-                return Json(new { result = "ok" });
+                return Ok();
             }
             catch (Exception ex)
             {
-                return Json(new { result = "error" });
+                return BadRequest(ex.Message);
             }
         }
+
+        // POST: api/Usuarios
+        //[HttpPost]
+        //public IHttpActionResult Post([FromBody] string username, string email)
+        //{
+        //    try
+        //    {
+        //        var usuario = new Usuario();
+        //        _dbContext.Usuarios.Add(usuario);
+        //        _dbContext.SaveChanges();
+
+        //        return Json(new { result = "ok" });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Json(new { result = "error" });
+        //    }
+        //}
+
 
         // PUT: api/Usuarios/5
         public void Put(int id, [FromBody]string value)

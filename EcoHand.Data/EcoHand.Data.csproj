@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201907231919314_agregando_campos_a_los_modelos.Designer.cs">
       <DependentUpon>201907231919314_agregando_campos_a_los_modelos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907310029201_se_creo_el_campo_Contraseña_en_Usuario.cs" />
+    <Compile Include="Migrations\201907310029201_se_creo_el_campo_Contraseña_en_Usuario.Designer.cs">
+      <DependentUpon>201907310029201_se_creo_el_campo_Contraseña_en_Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Gesto.cs" />
     <Compile Include="Models\Secuencia.cs" />
@@ -73,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907231919314_agregando_campos_a_los_modelos.resx">
       <DependentUpon>201907231919314_agregando_campos_a_los_modelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907310029201_se_creo_el_campo_Contraseña_en_Usuario.resx">
+      <DependentUpon>201907310029201_se_creo_el_campo_Contraseña_en_Usuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
