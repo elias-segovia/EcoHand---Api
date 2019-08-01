@@ -194,6 +194,7 @@
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DTO_In\DTO_In_Usuario.cs" />
+    <Compile Include="DTO_Out\DTO_Out_Id.cs" />
     <Compile Include="DTO_Out\DTO_Out_Usuario.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

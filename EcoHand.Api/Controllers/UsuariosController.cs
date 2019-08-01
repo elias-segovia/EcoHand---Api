@@ -1,4 +1,5 @@
 ﻿using EcoHand.Api.DTO_In;
+using EcoHand.Api.DTO_Out;
 using EcoHand.Data;
 using EcoHand.Data.Models;
 using System;
@@ -47,10 +48,11 @@ namespace EcoHand.Api.Controllers
                 user.Username = usuario.Username;
                 user.Email = usuario.Email;
                 user.Contraseña = usuario.Contraseña;
+                user.FechaCreacion = DateTime.Today;
                 _dbContext.Usuarios.Add(user);
                 _dbContext.SaveChanges();
 
-                return Ok();
+                return Ok(new DTO_Out_Id(user.ID));
             }
             catch (Exception ex)
             {
