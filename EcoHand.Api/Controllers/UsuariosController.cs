@@ -34,19 +34,35 @@ namespace EcoHand.Api.Controllers
         }
 
         // GET: api/Usuarios/1
-        public IHttpActionResult GetUser(string userName, string contrsena)
-        {
-            if (_dbContext.Usuarios.Any(x => x.Username == userName && x.Contraseña == contrsena))
-                return Ok();
-            else
-                return BadRequest(ErrorCodes.USUARIO_INEXISTENTE);
-        }
-
-        // GET: api/Usuarios/1
         public IHttpActionResult Get(int id)
         {
             var usuario = _dbContext.Usuarios.Find(id);
-            return Json(usuario);
+            return Ok(usuario);
+        }
+
+        [HttpPost]
+        [Route("Login")]
+        public IHttpActionResult Login([FromBody] DTO_In_Usuario usuario)
+        {
+            try
+            {
+                if (_dbContext.Usuarios.Any(x => x.Username == usuario.Username && x.Contraseña == usuario.Contraseña))
+                {
+                    var user = new Usuario();
+                    user.Username = usuario.Username;
+                    user.Contraseña = usuario.Contraseña;
+                    return Ok(new DTO_Out_Id(user.ID));
+                }
+                else
+                {
+                    return BadRequest(ErrorCodes.USUARIO_INEXISTENTE);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
