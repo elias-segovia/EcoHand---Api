@@ -1,5 +1,6 @@
 ﻿using EcoHand.Api.DTO_In;
 using EcoHand.Api.DTO_Out;
+using EcoHand.Api.Models;
 using EcoHand.Data;
 using EcoHand.Data.Models;
 using System;
@@ -33,6 +34,15 @@ namespace EcoHand.Api.Controllers
         }
 
         // GET: api/Usuarios/1
+        public IHttpActionResult GetUser(string userName, string contrsena)
+        {
+            if (_dbContext.Usuarios.Any(x => x.Username == userName && x.Contraseña == contrsena))
+                return Ok();
+            else
+                return BadRequest(ErrorCodes.USUARIO_INEXISTENTE);
+        }
+
+        // GET: api/Usuarios/1
         public IHttpActionResult Get(int id)
         {
             var usuario = _dbContext.Usuarios.Find(id);
@@ -44,15 +54,24 @@ namespace EcoHand.Api.Controllers
         {
             try
             {
-                var user = new Usuario();
-                user.Username = usuario.Username;
-                user.Email = usuario.Email;
-                user.Contraseña = usuario.Contraseña;
-                user.FechaCreacion = DateTime.Today;
-                _dbContext.Usuarios.Add(user);
-                _dbContext.SaveChanges();
+            
+                if(!_dbContext.Usuarios.Any(x => x.Username == usuario.Username))
+                {
+                    var user = new Usuario();
+                    user.Username = usuario.Username;
+                    user.Email = usuario.Email;
+                    user.Contraseña = usuario.Contraseña;
+                    user.FechaCreacion = DateTime.Today;
+                    _dbContext.Usuarios.Add(user);
+                    _dbContext.SaveChanges();
 
-                return Ok(new DTO_Out_Id(user.ID));
+                    return Ok(new DTO_Out_Id(user.ID));
+                }
+                else
+                {                   
+                    return BadRequest(ErrorCodes.USUARIO_EXISTENTE);
+                }
+         
             }
             catch (Exception ex)
             {
