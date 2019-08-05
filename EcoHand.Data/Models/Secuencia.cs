@@ -27,6 +27,7 @@ namespace EcoHand.Data.Models
 
         public int UsuarioID { get; set; }
 
-        public virtual Usuario Usuario { get; set; }
+
+
     }
 }
