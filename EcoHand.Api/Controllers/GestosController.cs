@@ -41,8 +41,20 @@ namespace EcoHand.Api.Controllers
         // POST: api/Gestos
         public object Post([FromBody]Gesto gesto)
         {
-            return Request.CreateResponse(HttpStatusCode.OK,
-                new { gesto = gesto });
+            try
+            {
+                gesto.FechaCreacion = DateTime.Now;
+                gesto.FechaModificacion = DateTime.Now;
+                _dbContext.Gestos.Add(gesto);
+
+                _dbContext.SaveChanges();
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
         }
 
