@@ -13,11 +13,14 @@ using System.Web.Http;
 
 namespace EcoHand.Api.Controllers
 {
+    [RoutePrefix("api/Usuarios")]
     public class UsuariosController : ApiController
     {
         private OperativeDbContext _dbContext = new OperativeDbContext();
 
         // GET: api/Usuarios
+        [HttpGet]
+        [Route("Users")]
         public IHttpActionResult Get()
         {
             try
@@ -34,12 +37,15 @@ namespace EcoHand.Api.Controllers
         }
 
         // GET: api/Usuarios/1
+        [HttpGet]
+        [Route("User/{id}")]
         public IHttpActionResult Get(int id)
         {
             var usuario = _dbContext.Usuarios.Find(id);
             return Ok(usuario);
         }
 
+        
         [HttpPost]
         [Route("Login")]
         public IHttpActionResult Login([FromBody] DTO_In_Usuario usuario)
@@ -65,13 +71,15 @@ namespace EcoHand.Api.Controllers
             }
         }
 
+        //POST: api/Usuarios
         [HttpPost]
+        [Route("User")]
         public IHttpActionResult Post([FromBody] DTO_In_Usuario usuario)
         {
             try
             {
-            
-                if(!_dbContext.Usuarios.Any(x => x.Username == usuario.Username))
+
+                if (!_dbContext.Usuarios.Any(x => x.Username == usuario.Username))
                 {
                     var user = new Usuario();
                     user.Username = usuario.Username;
@@ -84,34 +92,16 @@ namespace EcoHand.Api.Controllers
                     return Ok(new DTO_Out_Id(user.ID));
                 }
                 else
-                {                   
+                {
                     return BadRequest(ErrorCodes.USUARIO_EXISTENTE);
                 }
-         
+
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
-
-        // POST: api/Usuarios
-        //[HttpPost]
-        //public IHttpActionResult Post([FromBody] string username, string email)
-        //{
-        //    try
-        //    {
-        //        var usuario = new Usuario();
-        //        _dbContext.Usuarios.Add(usuario);
-        //        _dbContext.SaveChanges();
-
-        //        return Json(new { result = "ok" });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Json(new { result = "error" });
-        //    }
-        //}
 
 
         // PUT: api/Usuarios/5
