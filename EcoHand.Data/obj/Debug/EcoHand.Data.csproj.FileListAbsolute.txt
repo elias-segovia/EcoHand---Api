@@ -50,10 +50,10 @@ C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\bin\Debug\EntityFramework.dll
 C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\bin\Debug\EntityFramework.SqlServer.dll
 C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\bin\Debug\EntityFramework.xml
 C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\bin\Debug\EntityFramework.SqlServer.xml
-C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\obj\Debug\EcoHand.Data.csprojResolveAssemblyReference.cache
 C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\obj\Debug\EcoHand.Data.Migrations.Inicializando.resources
 C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\obj\Debug\EcoHand.Data.Migrations.agregando_campos_a_los_modelos.resources
 C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\obj\Debug\EcoHand.Data.Migrations.se_creo_el_campo_Contraseña_en_Usuario.resources
 C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\obj\Debug\EcoHand.Data.csproj.GenerateResource.Cache
 C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\obj\Debug\EcoHand.Data.dll
 C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\obj\Debug\EcoHand.Data.pdb
+C:\Github\EcoHand\EcoHand---Api\EcoHand.Data\obj\Debug\EcoHand.Data.csprojResolveAssemblyReference.cache

@@ -59,14 +59,36 @@ namespace EcoHand.Api.Controllers
         }
 
         // PUT: api/Gestos/5
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put([FromBody]Gesto gesto)
         {
+            try
+            {
+                var target = _dbContext.Gestos.Find(gesto.ID);
+                _dbContext.Gestos.Attach(target);
+                target = gesto;
+                target.FechaModificacion = DateTime.Now;
+                _dbContext.SaveChanges();
 
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE: api/Gestos/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+
+            var gesto = _dbContext.Gestos.Find(id);
+
+            _dbContext.Gestos.Remove(gesto);
+
+            _dbContext.SaveChanges();
+
+            return Ok();
+
         }
     }
 }
