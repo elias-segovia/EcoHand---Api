@@ -59,21 +59,32 @@ namespace EcoHand.Api.Controllers
         }
 
         // PUT: api/Gestos/5
-        public IHttpActionResult Put([FromBody]Gesto gesto)
+        public HttpResponseMessage Put([FromBody]Gesto gesto)
         {
             try
             {
                 var target = _dbContext.Gestos.Find(gesto.ID);
-                _dbContext.Gestos.Attach(target);
-                target = gesto;
+
+                if (target == null)
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Gesto con id=" + gesto.ID + "no encontrado");
+                }
+
                 target.FechaModificacion = DateTime.Now;
+                target.Descripcion = gesto.Descripcion;
+                target.Nombre = gesto.Nombre;
+                target.PosAnular = gesto.PosAnular;
+                target.Posindice = gesto.Posindice;
+                target.PosMayor = gesto.PosMayor;
+                target.PosMeñique = gesto.PosMeñique;
+
                 _dbContext.SaveChanges();
 
-                return Ok();
+               return  Request.CreateResponse(HttpStatusCode.OK, target);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+               return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
             }
         }
 
