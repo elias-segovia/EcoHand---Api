@@ -59,14 +59,47 @@ namespace EcoHand.Api.Controllers
         }
 
         // PUT: api/Gestos/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put([FromBody]Gesto gesto)
         {
+            try
+            {
+                var target = _dbContext.Gestos.Find(gesto.ID);
 
+                if (target == null)
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Gesto con id=" + gesto.ID + "no encontrado");
+                }
+
+                target.FechaModificacion = DateTime.Now;
+                target.Descripcion = gesto.Descripcion;
+                target.Nombre = gesto.Nombre;
+                target.PosAnular = gesto.PosAnular;
+                target.Posindice = gesto.Posindice;
+                target.PosMayor = gesto.PosMayor;
+                target.PosMeñique = gesto.PosMeñique;
+
+                _dbContext.SaveChanges();
+
+               return  Request.CreateResponse(HttpStatusCode.OK, target);
+            }
+            catch (Exception ex)
+            {
+               return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
         // DELETE: api/Gestos/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+
+            var gesto = _dbContext.Gestos.Find(id);
+
+            _dbContext.Gestos.Remove(gesto);
+
+            _dbContext.SaveChanges();
+
+            return Ok();
+
         }
     }
 }
