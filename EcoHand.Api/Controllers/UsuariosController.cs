@@ -54,10 +54,8 @@ namespace EcoHand.Api.Controllers
             {
                 if (_dbContext.Usuarios.Any(x => x.Username == usuario.Username && x.Contraseña == usuario.Contraseña))
                 {
-                    var user = new Usuario();
-                    user.Username = usuario.Username;
-                    user.Contraseña = usuario.Contraseña;
-                    return Ok(new DTO_Out_Id(user.ID));
+                    var user = _dbContext.Usuarios.Where(x => x.Username == usuario.Username && x.Contraseña == usuario.Contraseña).First();
+                    return Ok(new DTO_Out_Id(user.ID, user.Username));
                 }
                 else
                 {
@@ -89,7 +87,7 @@ namespace EcoHand.Api.Controllers
                     _dbContext.Usuarios.Add(user);
                     _dbContext.SaveChanges();
 
-                    return Ok(new DTO_Out_Id(user.ID));
+                    return Ok(new DTO_Out_Id(user.ID, user.Username));
                 }
                 else
                 {

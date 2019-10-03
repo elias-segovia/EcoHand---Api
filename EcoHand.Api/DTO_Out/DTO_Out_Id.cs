@@ -9,9 +9,12 @@ namespace EcoHand.Api.DTO_Out
     {
         public int Id { get; set; }
 
-        public DTO_Out_Id(int id)
+        public string Nombre { get; set; }
+
+        public DTO_Out_Id(int id, string nombre)
         {
             this.Id = id;
+            this.Nombre = nombre;
         }      
     }
 }

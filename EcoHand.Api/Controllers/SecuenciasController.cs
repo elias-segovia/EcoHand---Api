@@ -1,5 +1,6 @@
 ﻿using EcoHand.Api.DTO_In;
 using EcoHand.Data;
+using EcoHand.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,8 +44,22 @@ namespace EcoHand.Api.Controllers
         }
 
         // POST: api/Secuencias
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post([FromBody]Secuencia secuencia)
         {
+            try
+            {
+                secuencia.FechaCreacion = DateTime.Now;
+                secuencia.FechaModificacion = DateTime.Now;
+                _dbContext.Secuencias.Add(secuencia);
+
+                _dbContext.SaveChanges();
+
+                return Request.CreateResponse(HttpStatusCode.OK,secuencia.ID);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest,ex);
+            }
         }
 
         // PUT: api/Secuencias/5
