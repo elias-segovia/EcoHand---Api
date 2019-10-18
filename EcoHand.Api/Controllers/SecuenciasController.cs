@@ -25,7 +25,7 @@ namespace EcoHand.Api.Controllers
         }
 
         // GET: api/Secuencias/5
-        [HttpGet]
+        [HttpGet] 
         [Route("Get/{id}")]
         public IHttpActionResult Get(int id)
         {
@@ -43,6 +43,7 @@ namespace EcoHand.Api.Controllers
             return Ok(secuencias);
         }
 
+  
         // POST: api/Secuencias
         public HttpResponseMessage Post([FromBody]Secuencia secuencia)
         {
@@ -63,13 +64,42 @@ namespace EcoHand.Api.Controllers
         }
 
         // PUT: api/Secuencias/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put( [FromBody]Secuencia secuencia)
         {
+            try
+            {
+                var target = _dbContext.Secuencias.Find(secuencia.ID);
+
+                if (target == null)
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Secuencia con id=" + secuencia.ID + "no encontrada");
+                }
+
+                target.FechaModificacion = DateTime.Now;
+                target.Descripcion = secuencia.Descripcion;
+                target.Nombre = secuencia.Nombre;
+                target.CodigoEjecutable = secuencia.CodigoEjecutable;
+                target.CodigoEstructura = secuencia.CodigoEstructura;
+                _dbContext.SaveChanges();
+
+                return Request.CreateResponse(HttpStatusCode.OK, target);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
         // DELETE: api/Secuencias/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            var secu = _dbContext.Secuencias.Find(id);
+
+            _dbContext.Secuencias.Remove(secu);
+
+            _dbContext.SaveChanges();
+
+            return Ok();
         }
     }
 }
