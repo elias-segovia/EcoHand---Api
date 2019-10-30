@@ -77,7 +77,7 @@ namespace EcoHand.Api.Controllers
                 target.Posindice = gesto.Posindice;
                 target.PosMayor = gesto.PosMayor;
                 target.PosMeñique = gesto.PosMeñique;
-                target.PosMayor = gesto.PosMayor;
+                target.PosPulgar = gesto.PosPulgar;
 
 
                 _dbContext.SaveChanges();
