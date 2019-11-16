@@ -43,7 +43,14 @@ namespace EcoHand.Api.Controllers
             return Ok(secuencias);
         }
 
-  
+        public IHttpActionResult Get(string secuenciaName)
+        {
+            var sec = _dbContext.Secuencias.Where(x => x.Nombre == secuenciaName).FirstOrDefault();
+
+            return Json(sec);
+        }
+
+
         // POST: api/Secuencias
         public HttpResponseMessage Post([FromBody]Secuencia secuencia)
         {
