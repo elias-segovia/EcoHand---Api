@@ -18,8 +18,9 @@ namespace EcoHand.Api.Controllers
         {
             
             var gestos = _dbContext.Gestos.ToList();
-            return Json(gestos);
-           
+            return Json(gestos); 
+
+
         }
 
 
@@ -34,6 +35,13 @@ namespace EcoHand.Api.Controllers
         {
             var gestos = _dbContext.Gestos.Where(x => x.UsuarioID == UserId).ToList();
             return Json(gestos);
+        }
+
+        public IHttpActionResult Get(string nombreGesto)
+        {
+            var gesto = _dbContext.Gestos.Where(x => x.Nombre == nombreGesto).FirstOrDefault();
+
+            return Json(gesto);
         }
 
 
@@ -77,7 +85,7 @@ namespace EcoHand.Api.Controllers
                 target.Posindice = gesto.Posindice;
                 target.PosMayor = gesto.PosMayor;
                 target.PosMeñique = gesto.PosMeñique;
-                target.PosMayor = gesto.PosMayor;
+                target.PosPulgar = gesto.PosPulgar;
 
 
                 _dbContext.SaveChanges();
